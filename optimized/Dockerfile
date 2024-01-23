@@ -21,7 +21,7 @@ RUN apt-get install -y git \
     && git clone https://github.com/grafana/grafana.git grafana/ 
 
 
-FROM curl as node-yarn-and-build
+FROM curl
 COPY --from=golang go /usr/local
 COPY --from=grafana grafana/ grafana/
 RUN apt-get install -y make build-essential \
